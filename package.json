@@ -1,0 +1,44 @@
+{
+  "name": "run-all",
+  "version": "1.0.0",
+  "description": "CLI tool to execute multiple commands parallelly.",
+  "bin": {
+    "run-all": "lib/command.js"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src --out-dir lib",
+    "lint": "eslint src && eslint test",
+    "test": "npm run build && mocha test/*.js --compilers js:babel/register",
+    "testing": "babel src --out-dir lib && node lib/command.js \"npm run testing:build\" \"npm run testing:mocha\"",
+    "testing:build": "babel src --out-dir lib --watch --source-maps-inline",
+    "testing:mocha": "mocha test/*.js --compilers js:espower-babel/guess --timeout 5000 --watch --colors"
+  },
+  "devDependencies": {
+    "babel": "^4.7.1",
+    "eslint": "^0.16.2",
+    "espower-babel": "^1.4.0",
+    "mocha": "^2.2.0",
+    "power-assert": "^0.10.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mysticatea/run-all.git"
+  },
+  "keywords": [
+    "commandline",
+    "cli",
+    "run",
+    "exec",
+    "execute",
+    "parallel"
+  ],
+  "author": "Toru Nagashima",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysticatea/run-all/issues"
+  },
+  "homepage": "https://github.com/mysticatea/run-all"
+}
