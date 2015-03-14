@@ -12,7 +12,7 @@
     "build": "babel src --out-dir lib",
     "lint": "eslint src && eslint test",
     "test": "npm run build && mocha test/*.js --compilers js:babel/register",
-    "testing": "babel src --out-dir lib && node lib/command.js \"npm run testing:build\" \"npm run testing:mocha\"",
+    "testing": "babel src --out-dir lib && run-all \"npm run testing:build\" \"npm run testing:mocha\"",
     "testing:build": "babel src --out-dir lib --watch --source-maps-inline",
     "testing:mocha": "mocha test/*.js --compilers js:espower-babel/guess --timeout 5000 --watch --colors"
   },
@@ -21,7 +21,8 @@
     "eslint": "^0.16.2",
     "espower-babel": "^1.4.0",
     "mocha": "^2.2.0",
-    "power-assert": "^0.10.2"
+    "power-assert": "^0.10.2",
+    "run-all": "1.0.0"
   },
   "repository": {
     "type": "git",
